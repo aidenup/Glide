@@ -8,5 +8,7 @@
     <true/>
     <key>com.apple.security.cs.allow-dyld-environment-variables</key>
     <true/>
+    <key>NSAppleEventsUsageDescription</key>
+    <string>是否允许App发送苹果事件？</string>
   </dict>
 </plist>

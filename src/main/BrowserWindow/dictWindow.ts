@@ -2,7 +2,7 @@
  * @Author: goudanyang
  * @Date: 2023-12-17 20:03:31
  * @LastEditors: goudanyang
- * @LastEditTime: 2023-12-21 20:47:37
+ * @LastEditTime: 2023-12-21 21:00:13
  * @Description:
  */
 import { BrowserWindow, shell } from 'electron'
@@ -69,9 +69,9 @@ class dictWindow {
       event.preventDefault()
       this.window?.hide()
     })
-    // this.window?.on('blur', () => {
-    //   this.window?.hide()
-    // })
+    this.window?.on('blur', () => {
+      this.window?.hide()
+    })
   }
 
   destroy() {

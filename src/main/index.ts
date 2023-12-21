@@ -37,6 +37,8 @@ app.whenReady().then(() => {
     const originalClipboardImage = clipboard.readImage()
 
     // 模拟按下 Ctrl+C 或 Command+C
+    console.log('robot.keyTap', robot.keyTap)
+
     if (process.platform === 'darwin') {
       robot.keyTap('c', 'command')
     } else {
@@ -50,6 +52,7 @@ app.whenReady().then(() => {
       console.log(`User selected text: ${selectedText}`)
 
       // 在这里你可以对选中的文本进行进一步的处理
+      dictWindow.window && dictWindow.window.webContents.send('get-text', selectedText)
 
       // 恢复剪贴板内容
       if (!originalClipboardImage.isEmpty()) {
@@ -57,7 +60,7 @@ app.whenReady().then(() => {
       } else {
         clipboard.writeText(originalClipboardText)
       }
-    }, 100) // 延时时间可能需要根据实际情况调整
+    }, 1000) // 延时时间可能需要根据实际情况调整
   })
 
   // 创建系统托盘
